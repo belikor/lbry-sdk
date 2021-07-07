@@ -9,9 +9,19 @@ Here's a video walkthrough of this setup, which is itself hosted by the LBRY net
 
 ## Prerequisites
 
-Running `lbrynet` from source requires Python 3.7 or higher. Get the installer for your OS [here](https://www.python.org/downloads/release/python-370/).
+Running `lbrynet` from source requires Python 3.7. Get the installer for your OS [here](https://www.python.org/downloads/release/python-370/).
 
-After installing python 3, you'll need to install some additional libraries depending on your operating system.
+After installing python 3.7, you'll need to install some additional libraries depending on your operating system.
+
+Because of [issue #2769](https://github.com/lbryio/lbry-sdk/issues/2769)
+at the moment the `lbrynet` daemon will only work correctly with Python 3.7.
+If Python 3.8 is used, the daemon will start but the RPC server
+may not accept messages, returning the following:
+```
+Could not connect to daemon. Are you sure it's running?
+```
+
+Python 3.9 does not work either, as it fails in the compilation of `plyvel`.
 
 ### macOS
 
@@ -31,7 +41,7 @@ Assistance installing Python3: https://docs.python-guide.org/starting/install3/o
 
 ### Linux
 
-On Ubuntu (16.04 minimum, we recommend 18.04), install the following:
+On Ubuntu (we recommend 18.04, or 20.04), install the following:
 
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
