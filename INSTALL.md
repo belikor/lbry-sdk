@@ -15,13 +15,11 @@ After installing python 3.7, you'll need to install some additional libraries de
 
 Because of [issue #2769](https://github.com/lbryio/lbry-sdk/issues/2769)
 at the moment the `lbrynet` daemon will only work correctly with Python 3.7.
-If Python 3.8 is used, the daemon will start but the RPC server
+If Python 3.8+ is used, the daemon will start but the RPC server
 may not accept messages, returning the following:
 ```
 Could not connect to daemon. Are you sure it's running?
 ```
-
-Python 3.9 does not work either, as it fails in the compilation of `plyvel`.
 
 ### macOS
 
@@ -46,7 +44,7 @@ On Ubuntu (we recommend 18.04, or 20.04), install the following:
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
-sudo apt-get install build-essential python3.7 python3.7-dev git python3.7-venv libssl-dev python-protobuf libleveldb-dev
+sudo apt-get install build-essential python3.7 python3.7-dev git python3.7-venv libssl-dev python-protobuf python3-plyvel
 ```
 
 On Raspbian, you will also need to install `python-pyparsing`.

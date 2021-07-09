@@ -7,6 +7,8 @@ BASE = os.path.dirname(__file__)
 with open(os.path.join(BASE, 'README.md'), encoding='utf-8') as fh:
     long_description = fh.read()
 
+# plyvel does not need to be compiled, as it is normally available
+# as a package in Linux, python-plyvel
 PLYVEL = []
 if sys.platform.startswith('linux'):
     PLYVEL.append('plyvel==1.0.5')
@@ -56,7 +58,7 @@ setup(
         'attrs==18.2.0',
         'pylru==1.1.0',
         'elasticsearch==7.10.1'
-    ] + PLYVEL,
+    ],
     classifiers=[
         'Framework :: AsyncIO',
         'Intended Audience :: Developers',
