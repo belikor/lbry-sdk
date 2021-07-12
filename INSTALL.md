@@ -1,29 +1,28 @@
 # Installing LBRY
 
-If only the JSON-RPC API server is needed, the recommended way to install LBRY is to use a pre-built binary. We provide binaries for all major operating systems. See the [README](README.md)!
+If only the JSON-RPC API server is needed, the recommended way to install LBRY
+is to use a pre-built binary. We provide binaries for all major operating
+systems. See the [README](README.md)!
 
-These instructions are for installing LBRY from source, which is recommended if you are interested in doing development work or LBRY is not available on your operating system (godspeed, TempleOS users).
+These instructions are for installing LBRY from source, which is recommended
+if you are interested in doing development work or LBRY is not available
+on your operating system (godspeed, TempleOS users).
 
-Here's a video walkthrough of this setup, which is itself hosted by the LBRY network and provided via [spee.ch](https://github.com/lbryio/spee.ch):
+Here's a video walkthrough of this setup, which is itself hosted
+by the LBRY network and provided via [spee.ch](https://github.com/lbryio/spee.ch):
 [![Setup for development](https://spee.ch/2018-10-04-17-13-54-017046806.png)](https://spee.ch/967f99344308f1e90f0620d91b6c93e4dfb240e0/lbrynet-dev-setup.mp4)
 
 ## Prerequisites
 
-Running `lbrynet` from source requires Python 3.7. Get the installer for your OS [here](https://www.python.org/downloads/release/python-370/).
+Running `lbrynet` from source requires at least Python 3.7.
+Get the installer for your OS [here](https://www.python.org/downloads/release/python-370/).
 
-After installing Python 3.7, you'll need to install some additional libraries depending on your operating system.
+After installing Python 3.7+, you'll need to install some additional libraries
+depending on your operating system.
 
-Because of [issue #2769](https://github.com/lbryio/lbry-sdk/issues/2769)
-at the moment the `lbrynet` daemon will only work correctly with Python 3.7.
-If Python 3.8+ is used, the daemon will start but the RPC server
-may not accept messages, returning the following:
-```
-Could not connect to daemon. Are you sure it's running?
-```
+### Mac OSX
 
-### macOS
-
-macOS users will need to install [xcode command line tools](https://developer.xamarin.com/guides/testcloud/calabash/configuring/osx/install-xcode-command-line-tools/) and [homebrew](http://brew.sh/).
+Mac OSX users will need to install [xcode command line tools](https://developer.xamarin.com/guides/testcloud/calabash/configuring/osx/install-xcode-command-line-tools/) and [homebrew](http://brew.sh/).
 
 These environment variables also need to be set:
 ```
@@ -36,28 +35,34 @@ Remaining dependencies can then be installed by running:
 brew install python protobuf
 ```
 
-Assistance installing Python3: https://docs.python-guide.org/starting/install3/osx/.
+See the guide: [Installing Python 3 on Mac OS X](https://docs.python-guide.org/starting/install3/osx/).
 
 ### Linux
 
 On Ubuntu (we recommend 18.04 or 20.04), install the following:
 ```
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt-get install build-essential python3.7 python3.7-dev git python3.7-venv libssl-dev python-protobuf
+sudo apt-get install build-essential git python3 python3-dev python3-venv libssl-dev python-protobuf
 ```
 
-The `deadsnakes` personal package archive (PPA) provides Python 3.7
-for those Ubuntu distributions that no longer have it in their
-official repositories.
+The `deadsnakes` personal package archive (PPA) provides specific versions
+of Python that are not available in the official repositories
+of a particular Ubuntu release.
+For example, if using Ubuntu 20.04, and you wish to test your code
+against Python 3.7, use the following.
+```
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.7 python3.7-dev python3.7-venv
+```
 
 On Raspbian, you will also need to install `python-pyparsing`.
 
-If you're running another Linux distro, install the equivalent of the above packages for your system.
+If you're running another Linux distro, install the equivalent
+of the above packages for your system.
 
 ## Installation
 
-### Linux/Mac
+### Linux/Mac OSX
 
 Clone the repository:
 ```
@@ -67,7 +72,7 @@ $ cd lbry-sdk
 
 Create a Python virtual environment for lbry-sdk:
 ```
-$ python3.7 -m venv lbry-venv
+$ python -m venv lbry-venv
 ```
 
 Activate virtual environment:
