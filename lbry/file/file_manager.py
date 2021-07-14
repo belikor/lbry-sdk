@@ -249,6 +249,8 @@ class FileManager:
                 log.warning("Failed to download %s: %s", uri, str(err))
             elif isinstance(err, asyncio.CancelledError):
                 pass
+            elif isinstance(err, ValueError):
+                pass
             else:
                 log.exception("Unexpected error downloading stream:")
             error = err
